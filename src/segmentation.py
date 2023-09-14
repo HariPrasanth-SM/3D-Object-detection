@@ -24,12 +24,13 @@ def ransac(pcd, distance_threshold=0.33, ransac_n=3, num_iterations=100):
     
     return inlier_cloud, outlier_cloud
 
-## Read point cloud file
-pcd = o3d.io.read_point_cloud("../data/UDACITY/000000.pcd")
-
-inlier_cloud, outlier_cloud = ransac(pcd, 0.35, 3, 100)
-
-## Visualize the point cloud
-o3d.visualization.draw_geometries([pcd])
-o3d.visualization.draw_geometries([inlier_cloud.paint_uniform_color((0.25, 0.1, 0.1)),
-                                   outlier_cloud.paint_uniform_color((0.1, 0.3, 0.3))])
+if __name__ == "__main__":
+    ## Read point cloud file
+    pcd = o3d.io.read_point_cloud("../data/UDACITY/000000.pcd")
+    
+    inlier_cloud, outlier_cloud = ransac(pcd, 0.35, 3, 100)
+    
+    ## Visualize the point cloud
+    o3d.visualization.draw_geometries([pcd])
+    o3d.visualization.draw_geometries([inlier_cloud.paint_uniform_color((0.25, 0.1, 0.1)),
+                                       outlier_cloud.paint_uniform_color((0.1, 0.3, 0.3))])
