@@ -13,6 +13,7 @@ def dbscan(pcd, eps=0.02, min_points=10):
     :param eps: the distance to the neighbours in the cluster
     :param min_points: minimum number of points required to form a cluster
     :return cluster_cloud: point cloud file with different color-coded clusters
+    :return labels: the labels of every points from the point cloud
     """
     ## DBSCAN clustering
     with o3d.utility.VerbosityContextManager(o3d.utility.VerbosityLevel.Debug) as cm:
@@ -28,7 +29,7 @@ def dbscan(pcd, eps=0.02, min_points=10):
     cluster_cloud.points = o3d.utility.Vector3dVector(pcd.points)
     cluster_cloud.colors = o3d.utility.Vector3dVector(colors[:, :3])
 
-    return cluster_cloud
+    return cluster_cloud, labels
 
 if __name__=="__main__":
     ## Read point cloud file
@@ -38,7 +39,7 @@ if __name__=="__main__":
     inlier_cloud, outlier_cloud = ransac(pcd)
 
     ## DBSCAN Clustering 
-    cluster_cloud = dbscan(outlier_cloud, 0.5, 10)
+    cluster_cloud, labels = dbscan(outlier_cloud, 0.5, 10)
 
     ## Visualize the point cloud
     o3d.visualization.draw_geometries([pcd])
