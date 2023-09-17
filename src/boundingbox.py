@@ -40,7 +40,7 @@ def boundingbox(pcd_list, clusters):
         cluster = o3d.geometry.PointCloud()
         cluster.points = o3d.utility.Vector3dVector(points)
         aabb = cluster.get_axis_aligned_bounding_box()
-        aabb.color = (0.1, 0.1, 0.1)
+        aabb.color = (0.9, 0.9, 0.9)
         pcd_list.append(aabb)
     return pcd_list
 
