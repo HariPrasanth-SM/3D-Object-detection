@@ -18,8 +18,7 @@ stop_index = 230
 pbar = tqdm(total=(stop_index-start_index), position=0, leave=True)
 
 ## Read all point cloud files
-point_cloud_files = glob("../data/KITTI_PCD/*.pcd")
-print(point_cloud_files)
+point_cloud_files = sorted(glob("../data/KITTI_PCD/*.pcd"))
 all_files = [o3d.io.read_point_cloud(point_cloud_files[i]) for i in range(start_index, stop_index)]
 
 ## Processing the object detection and writing a video
