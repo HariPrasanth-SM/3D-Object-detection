@@ -3,7 +3,7 @@ In this GitHub repository, our primary goal is to access point cloud data from t
 
 The project specifically focuses on segmenting the ground and detecting 3D objects in point cloud data from the KITTI dataset using the built-in functions of the Open3D library. The final output can be viewed in the following video:
 
-![[Final Output](../document/3d_object_detection.gif)][https://youtu.be/FezeqxAs1CI]
+[![Final Output](https://github.com/Hari-SM/3D-Object-detection/blob/main/document/3d_object_detection.gif)](https://youtu.be/FezeqxAs1CI)
 
 ## About the Dataset
 For this project, we utilize the KITTI dataset. To obtain this dataset, simply run the following commands from your project directory:
